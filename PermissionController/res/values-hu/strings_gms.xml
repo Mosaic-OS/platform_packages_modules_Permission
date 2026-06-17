@@ -1,0 +1,75 @@
+<resources>
+    <string name="android_auto">Android Auto</string>
+
+    <string name="aauto_settings">Android Auto beállításai</string>
+    <string name="aauto_settings_summary_disabled">Az Android Auto le van tiltva</string>
+
+    <string name="permissions_category">Engedélyek</string>
+
+    <string name="aauto_wired_perms_title">Engedélyek megadása vezetékes Android Auto-hoz</string>
+    <string name="aauto_wired_perms_confirm">
+"Ezek az engedélyek lehetővé teszik az Android Auto-nak az alábbiakat:
+
+• Kapcsolódás az autóhoz USB-n keresztül
+• Autó kijelző adatainak küldése és fogadása
+• Android Auto-hoz regisztrált alkalmazások indítása az autó kijelzőjén
+• USB-port visszaállítása, hozzákapcsolt USB-eszközök újracsatlakoztatása
+"
+    </string>
+
+    <string name="audio_routing_perm_title">Hang átirányítása az eszközről az autóba</string>
+    <string name="audio_routing_perm_confirm">Ez az engedély lehetővé teszi, hogy az Android Auto a hanglejátszást és hangrögzítést az eszközről az autóba irányítsa. A hangrögzítés csak akkor engedélyezett, ha a Mikrofon-engedély is van.</string>
+
+    <string name="aauto_wireless_perms_title">Engedélyek megadása vezeték nélküli Android Auto-hoz</string>
+    <string name="aauto_wireless_perms_confirm">
+"Ezek az engedélyek lehetővé teszik az Android Autónak az alábbiakat:
+
+• Kapcsolódás és kommunikáció Bluetooth, Wi-Fi és USB eszközökkel
+• USB-port visszaállítása, hozzákapcsolt USB-eszközök újracsatlakoztatása  
+• Wi-Fi és Bluetooth ki- és bekapcsolása
+• Hozzáférés a Wi-Fi hálózatok listájához
+• Kapcsolódás Wi-Fi hálózatokhoz jelszómegerősítés nélkül
+• Készülék sorozatszámának, Bluetooth MAC-címének és Wi-Fi MAC-címének olvasása
+• Autó kijelző adatainak küldése és fogadása  
+• Android Auto-hoz regisztrált alkalmazások indítása az autó kijelzőjén
+
+A hálózati engedély is engedélyezve lesz, amely a Wi-Fi-n keresztüli kommunikációhoz szükséges.
+"
+    </string>
+
+    <string name="aauto_phone_perm_title">Engedélyek megadása híváskezeléshez</string>
+    <string name="aauto_phone_perm_confirm">
+"Ezek az engedélyek lehetővé teszik az Android Autónak az alábbiakat:
+
+• Hívások indítása és fogadása
+• Folyamatban lévő hívások kezelése
+• Bluetooth ki- és bekapcsolása
+• Párosítás és csatlakozás az autó kihangosító rendszeréhez Bluetooth-on keresztül
+"
+    </string>
+
+    <string name="aauto_app_info_title">Android Auto alkalmazás információi</string>
+    <string name="aauto_app_info_summary">Az alkalmazás információk képernyő a szokásos engedélybeállításokat tartalmazza</string>
+
+    <string name="notif_listener_settings_title">Értesítési hozzáférés beállításai</string>
+    <string name="notif_listener_settings_summary">Válaszd ki, mely értesítésekhez férhet hozzá az Android Auto</string>
+
+    <string name="potential_issues_category">Lehetséges problémák</string>
+    <string name="aauto_issue_voice_commands">Hangparancsok</string>
+    <string name="aauto_issue_voice_commands_header">A hangparancsok működéséhez:</string>
+    <string name="aauto_issue_aauto_no_microphone_perm">Az Android Autónak szüksége van a Mikrofon-engedélyre</string>
+    <string name="aauto_issue_gsa_not_installed">A Google alkalmazásnak telepítve kell lennie a Play Áruházból</string>
+    <string name="aauto_issue_gsa_disabled">A Google alkalmazásnak engedélyezve kell lennie</string>
+    <string name="aauto_issue_gsa_no_network_perm">A Google alkalmazásnak szüksége van a Hálózat-engedélyre</string>
+    <string name="aauto_issue_gsa_no_microphone_perm">A Google alkalmazásnak szüksége van a Mikrofon-engedélyre</string>
+
+    <string name="optional_deps_category">Opcionális függőségek</string>
+    <string name="app_dep_missing_summary">Nincs telepítve, koppints a Play Áruház megnyitásához</string>
+    <string name="app_dep_missing_summary_no_play_store">Nincs telepítve</string>
+    <string name="app_dep_installed">Telepítve, koppintson az alkalmazás információk megnyitásához</string>
+    <string name="app_dep_disabled">Letiltva, koppintson az alkalmazás információk megnyitásához</string>
+
+    <string name="google_maps_app">Google Térkép</string>
+    <string name="speech_services_app">Beszédfelismerés</string>
+    <string name="google_search_app">Google alkalmazás</string>
+</resources>

@@ -43,4 +43,11 @@
     <string name="advanced_privacy_title" msgid="1117725225706176643">"További adatvédelmi beállítások"</string>
     <string name="advanced_privacy_summary" msgid="2281203390575069543">"Automatikus kitöltés, tevékenységvezérlők és egyebek"</string>
     <string name="advanced_privacy_search_terms" msgid="5044404599789175222"></string>
+
+    <string name="exploit_protection_title">Kihasználás elleni védelem</string>
+    <string name="exploit_protection_summary">Eszköz- és alkalmazásbiztonsági fejlesztések</string>
+    <string name="exploit_protection_search_terms">Kihasználás, védelem</string>
+    <string name="duress_password_title">Kényszerhelyzeti jelszó</string>
+    <string name="duress_password_search_terms">Kényszerhelyzeti, Kényszerhelyzeti jelszó</string>
+
 </resources>
