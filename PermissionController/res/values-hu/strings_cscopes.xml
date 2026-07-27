@@ -1,0 +1,50 @@
+<resources>
+    <string name="contact_scopes">Névjegy hatókörök</string>
+    <string name="setup_contact_scopes">Névjegy hatókörök beállítása</string>
+
+    <string name="cscopes_enable">Névjegy hatókörök engedélyezése</string>
+    <string name="cscopes_toast_all_contacts_permissions_denied">A névjegyekhez való hozzáférés most le van tiltva</string>
+    <string name="cscopes_turn_off">Kikapcsolás</string>
+    <string name="cscopes_turn_off_confirmation">Ki szeretné kapcsolni a Névjegy hatóköröket? Az összes hozzáadott hatókör eltávolításra kerül.</string>
+
+    <string name="cscopes_btn_add_label">Címke</string>
+    <string name="cscopes_btn_add_contact">Névjegy</string>
+    <string name="cscopes_btn_add_number">Szám</string>
+    <string name="cscopes_btn_add_email">E-mail</string>
+
+    <string name="cscopes_labels">Címkék</string>
+    <string name="cscopes_contacts">Névjegyek</string>
+    <string name="cscopes_numbers">Számok</string>
+    <string name="cscopes_emails">E-mailek</string>
+
+    <string name="cscope_group_open">Megnyitás</string>
+    <string name="cscope_group_add_to_scopes">Hozzáadás a hatókörök listájához</string>
+    <string name="cscope_btn_remove">Eltávolítás</string>
+    <string name="cscope_missing_item">Hiányzó elem, azonosító: %1$s</string>
+
+    <string name="cscopes_pick_label">Válasszon címkét</string>
+    <string name="cscopes_create_label">Címke létrehozása</string>
+
+    <string name="cscopes_toast_contacts_app_not_found">Névjegy alkalmazás nem található</string>
+    <plurals name="cscopes_toast_unknown_scope">
+        <item quantity="one">Ismeretlen hatókör: %1$s</item>
+        <item quantity="other">Egy vagy több hatókör ismeretlen: %1$s</item>
+    </plurals>
+    <string name="cscopes_toast_already_added">Ez a hatókör már hozzá van adva</string>
+
+    <string name="cscopes_disabled_footer">
+"Ha engedélyezi a Névjegy hatóköröket, az alkalmazás úgy fogja kezelni, mintha megkapta volna a Névjegyek kezeléséhez szükséges jogosultságot, holott valójában nem rendelkezik vele.
+
+Ez alapján semmilyen névjegyhez nem fog hozzáférni, és újakat sem tud létrehozni."
+    </string>
+    <string name="cscopes_empty_footer">
+"Ez az alkalmazás nem tud semmilyen névjegyhez hozzáférni, és újakat sem tud létrehozni (hacsak Ön nem adott neki valamilyen más módon Névjegy-hozzáférést).
+
+Opcionálisan engedélyezhet csak olvasható hozzáférést bizonyos névjegyek adataihoz, névjegyekhez vagy névjegycsoportokhoz (címkékhez)."
+    </string>
+
+    <string name="cscopes_settings">Beállítások</string>
+    <string name="cscopes_settings_dismiss">Bezárás</string>
+    <string name="cscopes_allow_custom_contacts_app">Engedélyezés egyéni névjegyalkalmazás használatára a hatókörök kiválasztásához</string>
+    <string name="cscopes_allow_contacts_permission_blocked_msg">A Névjegy-hozzáférés engedélyezése előtt kapcsolja ki a Névjegy hatóköröket.</string>
+</resources>

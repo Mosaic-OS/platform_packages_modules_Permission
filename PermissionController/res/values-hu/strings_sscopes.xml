@@ -1,0 +1,73 @@
+<resources>
+    <string name="sscopes_manage_external_storage_request">
+        Engedélyezi, hogy &lt;b&gt;%1$s&lt;/b&gt; kezelje az összes fájlt?
+    </string>
+    <string name="sscopes_manage_media_request">
+        Engedélyezi, hogy &lt;b&gt;%1$s&lt;/b&gt; kezelje a médiatartalmakat?
+    </string>
+
+    <string name="grant_dialog_button_allow_in_settings">
+        Engedélyezés (a beállításokban)
+    </string>
+
+    <string name="setup_storage_scopes">
+        Tárolási hatókörök beállítása
+    </string>
+
+    <string name="sscopes">
+        Tárolási hatókörök
+    </string>
+    <string name="sscopes_folders">
+        Mappák
+    </string>
+    <string name="sscopes_files">
+        Fájlok
+    </string>
+    <string name="sscopes_btn_add_folder">
+        Mappa hozzáadása
+    </string>
+    <string name="sscopes_btn_add_file">
+        Fájl hozzáadása
+    </string>
+    <string name="sscopes_btn_add_image">
+        Kép hozzáadása
+    </string>
+    <string name="sscopes_main_storage">
+        Elsődleges tárhely
+    </string>
+
+    <string name="sscopes_unknown_location">
+        Ismeretlen hatókör
+    </string>
+
+    <string name="sscopes_enable">
+        Tárolási hatókörök engedélyezése
+    </string>
+
+    <string name="sscopes_disabled_footer">
+"Ha engedélyezi a Tárolási hatóköröket, az alkalmazás azt fogja hinni, hogy minden kért tárhely-jogosultsággal rendelkezik, holott valójában nincs egyetlen engedélye sem.
+
+Egy alkalmazás, amelynek nincsenek tárhely-jogosultságai, létrehozhat fájlokat, illetve hozzáférhet saját maga által létrehozott fájlokhoz, függetlenül attól, hogy engedélyezett-e a Tárolási hatókörök funkció."
+    </string>
+
+    <string name="sscopes_empty_footer">
+"Ez az alkalmazás úgy hiszi, hogy minden kért tárhely-jogosultsággal rendelkezik, akár ténylegesen megkapta őket, akár nem.
+
+Egy alkalmazás, amelynek nincsenek tárhely-jogosultságai, létrehozhat fájlokat, illetve hozzáférhet saját maga által létrehozott fájlokhoz, függetlenül attól, hogy engedélyezett-e a Tárolási hatókörök funkció.
+
+Opcionálisan további fájlokhoz és mappákhoz is megadhat hozzáférést (például olyanokhoz, amelyeket nem maga az alkalmazás hozott létre)."
+    </string>
+
+    <string name="sscopes_shared_uid_warning">
+"Ne felejtse, hogy a(z) %1$s valójában egy alkalmazás részei.  
+A Tárolási hatókörök állapota megosztott közöttük, ahogy a jogosultságok és a hálózati használati statisztikák is."
+    </string>
+
+    <string name="sscopes_storage_permissions_revoked">
+        Minden tárhely-hozzáférési jogosultság le van tiltva
+    </string>
+
+    <string name="sscopes_turn_off_confirmation">
+        Kikapcsolja a Tárolási hatóköröket? Az összes hozzáadott hatókör eltávolításra kerül.
+    </string>
+</resources>
