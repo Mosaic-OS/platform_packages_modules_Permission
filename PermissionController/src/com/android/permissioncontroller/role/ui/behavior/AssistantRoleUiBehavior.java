@@ -16,29 +16,47 @@
 
 package com.android.permissioncontroller.role.ui.behavior;
 
+import android.Manifest;
 import android.app.AppOpsManager;
+import android.app.role.RoleManager;
+import android.content.ActivityNotFoundException;
+import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
+import android.content.pm.ResolveInfo;
+import android.content.pm.ServiceInfo;
+import android.content.res.Resources;
+import android.content.res.XmlResourceParser;
 import android.os.Build;
 import android.os.UserHandle;
 import android.provider.Settings;
+import android.service.voice.VoiceInteractionService;
 import android.text.Html;
+import android.text.TextUtils;
+import android.util.AttributeSet;
+import android.util.Log;
+import android.util.Xml;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import com.android.permission.flags.Flags;
 import com.android.permissioncontroller.R;
+import com.android.permissioncontroller.permission.utils.CollectionUtils;
 import com.android.permissioncontroller.permission.utils.Utils;
 import com.android.permissioncontroller.role.ui.RoleApplicationItem;
+import com.android.permissioncontroller.role.ui.TwoTargetPreference;
 import com.android.permissioncontroller.role.utils.PackageUtils;
 import com.android.role.controller.model.Role;
 import com.android.role.controller.util.SignedPackage;
 import com.android.role.controller.util.SignedPackageUtils;
 import com.android.role.controller.util.UserUtils;
 
+import org.xmlpull.v1.XmlPullParserException;
+
+import java.io.IOException;
 import java.util.List;
 import java.util.function.Predicate;
 
@@ -46,6 +64,95 @@ import java.util.function.Predicate;
  * Class for UI behavior of Assistant role
  */
 public class AssistantRoleUiBehavior implements RoleUiBehavior {
+
+    private static final String LOG_TAG = AssistantRoleUiBehavior.class.getSimpleName();
+
+    @Override
+    public void preparePreferenceAsUser(@NonNull Role role, @NonNull TwoTargetPreference preference,
+            @NonNull List<ApplicationInfo> applicationInfos, @NonNull UserHandle user,
+            @NonNull Context context) {
+        Intent intent = getSettingsIntentAsUser(role, user, context);
+        TwoTargetPreference.OnSecondTargetClickListener listener = null;
+        if (intent != null) {
+            listener = preference2 -> {
+                try {
+                    context.startActivity(intent);
+                } catch (ActivityNotFoundException e) {
+                    Log.e(LOG_TAG, "Cannot start activity for assistant settings", e);
+                }
+            };
+        }
+        preference.setOnSecondTargetClickListener(listener);
+    }
+
+    // The settings activity declared in the holder's voice interaction metadata, as the old
+    // Settings assist screen offered it.
+    @Nullable
+    private static Intent getSettingsIntentAsUser(@NonNull Role role, @NonNull UserHandle user,
+            @NonNull Context context) {
+        RoleManager roleManager = context.getSystemService(RoleManager.class);
+        String packageName = CollectionUtils.firstOrNull(roleManager.getRoleHoldersAsUser(
+                role.getName(), user));
+        if (packageName == null) {
+            return null;
+        }
+        PackageManager userPackageManager = UserUtils.getUserContext(context, user)
+                .getPackageManager();
+        List<ResolveInfo> services = userPackageManager.queryIntentServices(
+                new Intent(VoiceInteractionService.SERVICE_INTERFACE).setPackage(packageName),
+                PackageManager.GET_META_DATA);
+        for (ResolveInfo service : services) {
+            String activity = getSettingsActivity(userPackageManager, service.serviceInfo);
+            if (TextUtils.isEmpty(activity)) {
+                continue;
+            }
+            Intent intent = new Intent(Intent.ACTION_MAIN)
+                    .setComponent(ComponentName.createRelative(packageName, activity))
+                    .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            ResolveInfo resolveInfo = userPackageManager.resolveActivity(intent, 0);
+            if (resolveInfo != null && resolveInfo.activityInfo != null
+                    && resolveInfo.activityInfo.exported) {
+                return intent;
+            }
+        }
+        return null;
+    }
+
+    @Nullable
+    private static String getSettingsActivity(@NonNull PackageManager packageManager,
+            @NonNull ServiceInfo serviceInfo) {
+        if (!Manifest.permission.BIND_VOICE_INTERACTION.equals(serviceInfo.permission)) {
+            return null;
+        }
+        try (XmlResourceParser parser = serviceInfo.loadXmlMetaData(packageManager,
+                VoiceInteractionService.SERVICE_META_DATA)) {
+            if (parser == null) {
+                return null;
+            }
+            int type;
+            do {
+                type = parser.next();
+            } while (type != XmlResourceParser.END_DOCUMENT && type != XmlResourceParser.START_TAG);
+
+            String settingsActivity = null;
+            boolean supportsAssist = false;
+            AttributeSet attrs = Xml.asAttributeSet(parser);
+            int numAttrs = attrs.getAttributeCount();
+            for (int i = 0; i < numAttrs; i++) {
+                switch (attrs.getAttributeNameResource(i)) {
+                    case android.R.attr.settingsActivity:
+                        settingsActivity = attrs.getAttributeValue(i);
+                        break;
+                    case android.R.attr.supportsAssist:
+                        supportsAssist = attrs.getAttributeBooleanValue(i, false);
+                        break;
+                }
+            }
+            return supportsAssist ? settingsActivity : null;
+        } catch (XmlPullParserException | IOException | Resources.NotFoundException e) {
+            return null;
+        }
+    }
 
     @Nullable
     @Override
